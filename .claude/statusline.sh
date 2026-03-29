@@ -18,9 +18,9 @@ else
   [ -z "$model" ] && model="Unknown"
 fi
 
-# Normalize Windows paths
+# Normalize Windows paths and default to project root
 cwd=$(echo "$cwd" | sed 's|\\|/|g')
-[ -z "$cwd" ] && cwd="."
+[ -z "$cwd" ] && cwd="C:/git/Warcrap-Claude-Code-Game-Studios"
 
 # --- Context usage ---
 if [ -n "$used_pct" ]; then

@@ -7,6 +7,9 @@
 # Exit on error for debugging (but don't fail the session)
 set +e
 
+PROJECT_ROOT="C:/git/Warcrap-Claude-Code-Game-Studios"
+cd "$PROJECT_ROOT" || exit 0
+
 echo "=== Checking for Documentation Gaps ==="
 
 # --- Check 0: Fresh project detection (suggests /start) ---

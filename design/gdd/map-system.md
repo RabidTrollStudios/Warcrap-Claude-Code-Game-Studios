@@ -11,7 +11,7 @@ The Map System defines the 2D grid that all gameplay takes place on. Every unit
 position, building footprint, pathfinding query, and buildability check operates
 against this grid. It provides three boolean layers per cell — walkable, buildable,
 and passage — that together determine where units can move, where buildings can be
-placed, and how multi-cell structures interact with movement.
+placed, and how building top-rows interact with movement.
 
 The grid is shared between SimGame and Unity via `AgentSDK/GameGrid.cs`, ensuring
 both engines operate on identical spatial data. The Map System owns the grid
@@ -42,19 +42,20 @@ connectivity ensure neither player has a positional advantage.
 - **Minimum size**: 15×15
 - **Cell size**: 1 unit = 1 grid cell (integer positions)
 
-#### 2. Two-Layer Cell Model
+#### 2. Three-Layer Cell Model
 
-Each cell has two independent boolean properties:
+Each cell has three boolean properties:
 
 | Layer | Default | Meaning |
 |-------|---------|---------|
 | **Walkable** | true | Mobile units can path through this cell |
 | **Buildable** | true | New units/buildings can be placed on this cell |
+| **Passage** | false | Building top-row cell — walkable, not buildable, units move freely without claiming/releasing |
 
-Terrain obstacles set both walkable and buildable to false. The former
-three-layer model (walkable/buildable/passage) is simplified — "passage" cells
-are just cells where `walkable = true` and `buildable = false`, which requires
-no dedicated flag.
+The passage flag is required because two different game states share the same
+walkable=true/buildable=false combination: building top-row cells (passage) and
+cells occupied by mobile units. The movement system must distinguish these —
+units move freely through passage cells but wait/detour around occupied cells.
 
 #### 3. Building Footprint System
 
@@ -152,7 +153,7 @@ round and then mutated only by:
 #### Ownership Boundary
 
 The Map System owns:
-- Grid structure (dimensions, two boolean layers)
+- Grid structure (dimensions, three boolean layers: walkable, buildable, passage)
 - Cell query API (walkable, buildable, area checks)
 - Building footprint logic (placement, removal, top-row walkability)
 - Neighbor ring calculation

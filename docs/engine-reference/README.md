@@ -7,9 +7,9 @@ has a cutoff date** and game engines update frequently.
 ## Why This Exists
 
 Claude's training data has a knowledge cutoff (currently May 2025). Game engines
-like Godot, Unity, and Unreal ship updates that introduce breaking API changes,
-new features, and deprecated patterns. Without these reference files, agents will
-suggest outdated code.
+like Unity ship updates that introduce breaking API changes, new features, and
+deprecated patterns. Without these reference files, agents will suggest outdated
+code. This project uses Unity 6.0.3 — only Unity reference docs are maintained.
 
 ## Structure
 

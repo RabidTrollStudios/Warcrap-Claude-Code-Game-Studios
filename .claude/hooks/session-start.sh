@@ -4,6 +4,9 @@
 #
 # Input schema (SessionStart): No stdin input
 
+PROJECT_ROOT="C:/git/Warcrap-Claude-Code-Game-Studios"
+cd "$PROJECT_ROOT" || exit 0
+
 echo "=== Claude Code Game Studios — Session Context ==="
 
 # Current branch

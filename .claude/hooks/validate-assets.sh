@@ -6,6 +6,9 @@
 # Input schema (PostToolUse for Write/Edit):
 # { "tool_name": "Write", "tool_input": { "file_path": "assets/data/foo.json", "content": "..." } }
 
+PROJECT_ROOT="C:/git/Warcrap-Claude-Code-Game-Studios"
+cd "$PROJECT_ROOT" || exit 0
+
 INPUT=$(cat)
 
 # Parse file path -- use jq if available, fall back to grep

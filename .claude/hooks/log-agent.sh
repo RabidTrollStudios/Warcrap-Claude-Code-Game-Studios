@@ -5,6 +5,9 @@
 # Input schema (SubagentStart):
 # { "agent_id": "agent-abc123", "agent_name": "game-designer", ... }
 
+PROJECT_ROOT="C:/git/Warcrap-Claude-Code-Game-Studios"
+cd "$PROJECT_ROOT" || exit 0
+
 INPUT=$(cat)
 
 # Parse agent name -- use jq if available, fall back to grep

@@ -2,6 +2,9 @@
 # Claude Code Stop hook: Log session summary when Claude finishes
 # Records what was worked on for audit trail and sprint tracking
 
+PROJECT_ROOT="C:/git/Warcrap-Claude-Code-Game-Studios"
+cd "$PROJECT_ROOT" || exit 0
+
 TIMESTAMP=$(date +%Y%m%d_%H%M%S)
 SESSION_LOG_DIR="production/session-logs"
 

@@ -3,6 +3,9 @@
 # This output appears in the conversation right before compaction, ensuring
 # critical state survives the summarization process.
 
+PROJECT_ROOT="C:/git/Warcrap-Claude-Code-Game-Studios"
+cd "$PROJECT_ROOT" || exit 0
+
 echo "=== SESSION STATE BEFORE COMPACTION ==="
 echo "Timestamp: $(date)"
 

@@ -6,6 +6,9 @@
 # Input schema (PreToolUse for Bash):
 # { "tool_name": "Bash", "tool_input": { "command": "git commit -m ..." } }
 
+PROJECT_ROOT="C:/git/Warcrap-Claude-Code-Game-Studios"
+cd "$PROJECT_ROOT" || exit 0
+
 INPUT=$(cat)
 
 # Parse command -- use jq if available, fall back to grep
